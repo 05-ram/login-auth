@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import userInfo from "../assets/images/user-info.jpg";
 
 const UserInfo = () => {
     return (
-        <div>UserInfo</div>
+        <div className='user-info'>
+            <img src={userInfo} alt="image" className='img' />
+        </div>
     )
 }
 

@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import userImg from "../assets/images/user.jpg";
 
 const Users = () => {
     return (
-        <div>Users</div>
+        <div className='users'>
+            <img src={userImg} alt="image" className='img' />
+        </div>
     )
 }
 

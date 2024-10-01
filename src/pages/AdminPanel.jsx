@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import adminImg from "../assets/images/admin.jpg"
 
 const AdminPanel = () => {
     return (
-        <div>AdminPanel</div>
+        <div className='admin'>
+            <img src={adminImg} alt="image" className='img' />
+        </div>
     )
 }
 
