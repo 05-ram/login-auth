@@ -3,8 +3,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from "../assets/images/logo.png";
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../context/AuthContext';
 
-function BasicExample() {
+function Header() {
+    const { logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut();
+    }
     return (
         <Navbar expand="lg">
             <Container>
@@ -14,11 +20,11 @@ function BasicExample() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto gap-3">
-                        <NavLink to='/dashboard' activeClassName="active">Dashboard</NavLink>
+                        <NavLink to='/dashboard' activeclassname="active">Dashboard</NavLink>
                         <NavLink to='/admin'>Admin Panel</NavLink>
                         <NavLink to='/users'>Users</NavLink>
                         <NavLink to='/user-info'>Users-Info</NavLink>
-                        <NavLink to='/'>Login</NavLink>
+                        <NavLink to='/' onClick={handleLogOut}>Log Out</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -26,4 +32,4 @@ function BasicExample() {
     );
 }
 
-export default BasicExample;
+export default Header;
