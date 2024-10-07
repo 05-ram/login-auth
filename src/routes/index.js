@@ -1,4 +1,3 @@
-// RouterData.js
 import { createBrowserRouter } from 'react-router-dom';
 import Login from '../pages/Login';
 import AdminPanel from '../pages/AdminPanel';
@@ -9,9 +8,8 @@ import Layout from '../components/Layout';
 import AuthContext from '../context/AuthContext';
 import { useContext } from 'react';
 
-
 const RouterData = () => {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, userRole } = useContext(AuthContext);
 
     const routes = [
         {
@@ -19,8 +17,12 @@ const RouterData = () => {
             element: isAuthenticated ? <Layout /> : <Login />,
             children: [
                 {
+                    path: '/dashboard',
+                    element: isAuthenticated ? <Dashboard /> : <Login />
+                },
+                {
                     path: '/admin',
-                    element: isAuthenticated ? <AdminPanel /> : <Login />
+                    element: isAuthenticated && userRole === 'admin' ? <AdminPanel /> : <Login />
                 },
                 {
                     path: '/users',
@@ -29,12 +31,12 @@ const RouterData = () => {
                 {
                     path: '/user-info',
                     element: isAuthenticated ? <UserInfo /> : <Login />
-                },
-                {
-                    path: '/dashboard',
-                    element: isAuthenticated ? <Dashboard /> : <Login />
                 }
             ]
+        },
+        {
+            path: '*',
+            element: <Login />
         }
     ];
 
