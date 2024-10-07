@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
 .navbar {
   background-color: #0d1128;
 }
@@ -20,9 +24,14 @@
 .dashboard,
 .admin,
 .users,
-.user-info,
-.login-sec {
+.user-info {
   height: calc(100vh - 76px);
+}
+
+.login-sec {
+  background: url('./assets//images//log-bg.jpg') no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .img {

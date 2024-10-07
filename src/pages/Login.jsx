@@ -52,11 +52,11 @@ const Login = () => {
   };
 
   return (
-    <div className='login-sec'>
+    <div className='login-sec d-flex justify-content-center align-items-center'>
       <Container>
-        <h3 className='text-center pt-2'>Sign In</h3>
+        <h3 className='text-center pt-2 text-white'>Sign In</h3>
         <Row className='justify-content-center pt-4'>
-          <Col className='bg-light p-4' xl={6}>
+          <Col className='bg-light p-4 rounded' xl={6}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group className="mb-4" controlId="email">
                 <Form.Label>Email address</Form.Label>
